@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Grade Assignment</h1>
+        <span>
+            <p>Enter the Score: <input type="text" name="" id="typegrade"></p> <button onclick="button()">Submit</button>
+        </span>
+        <span>Your Achieved Grade: <h3 id="the_value"><h3></span>
+
+        <script>
+            const marks = document.getElementById('typegrade');
+            const result=document.getElementById('the_value');
+
+            //  ----------------------------------------------------------------
+            function button(){
+                const score = parseInt(marks.value);
+                let grade = '';
+                if (isNaN(score) || score<0 || score>100){
+                    grade='Invalid Score';
+                }else if (score >= 90 && score <= 100) {
+                    grade = 'A';
+                    result.style.color = '#27ae60'; // Green for A
+                } else if (score >= 71 && score <= 89) {
+                    grade = 'B';
+                    result.style.color = '#2ecc71'; // Lighter green for B
+                } else if (score >= 61 && score <= 70) {
+                    grade = 'C';
+                    result.style.color = '#f39c12'; // Orange for C
+                } else if (score >= 40 && score <= 60) {
+                    grade = 'D';
+                    result.style.color = '#e67e22'; // Darker orange for D
+                } else { // score >= 0 && score <= 39
+                    grade = 'F';
+                    result.style.color = '#c0392b'; // Dark red for F
+                }
+
+                result.textContent = grade;
+            //  --------------------------------------------------------------------
+            }
+        </script>
+    </body>
+</html>

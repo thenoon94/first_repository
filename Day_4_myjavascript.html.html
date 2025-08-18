@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Measurement Converter</h1>
+    <p>Enter Inch: <input type="text" name="Type in ONLY Numbers" id="inches_input"> <button onclick="clickin()">Submit</button></p>
+    <p>Equals to: <p id="demodemo"></p></p>
+
+    <script>
+        function clickin(){
+            // Getting Input Element by Its ID
+            const inches_input  = document.getElementById('inches_input');
+
+            // Getting the Paragraph where the Result will be Displayed
+            const demodemoparagraph = document.getElementById('demodemo');
+
+            // Extracting the Value from the Input
+            const inches_value = parseFloat(inches_input.value);
+
+            // Checking if the Input value is Valid
+            if (isNaN(inches_value)){
+                demodemoparagraph.textContent = "Please Enter a Valid Number.";
+            }else{
+                // Converting Inches into Centimeter
+                const cmValue = inches_value * 2.54;
+                
+                demodemoparagraph.textContent = `${cmValue.toFixed(2)} cm`
+            }
+        }
+    </script>
+</body>
+</html>
